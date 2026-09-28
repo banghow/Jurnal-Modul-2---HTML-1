@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<body>
+
+    <h2>Data Mahasiswa</h2>
+
+    <form name="formMahasiswa" onsubmit="return validasiForm()" novalidate>
+
+        <table>
+            <tr>
+                <td>NIM :</td>
+                <td><input type="text" name="nim"></td>
+            </tr>
+            <tr>
+                <td>Nama :</td>
+                <td><input type="text" name="nama"></td>
+            </tr>
+            <tr>
+                <td>Tgl Lahir (dd-mm-yyyy) :</td>
+                <td><input type="date" name="tgl_lahir"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin :</td>
+                <td>
+                    <input type="radio" name="jenis_kelamin" value="Laki-Laki"> Laki-Laki
+                    <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
+                </td>
+            </tr>
+            <tr>
+                <td>Alamat di Surabaya :</td>
+                <td><textarea name="alamat" rows="3" cols="25"></textarea></td>
+            </tr>
+            <tr>
+                <td>Tinggal di :</td>
+                <td>
+                    <select name="tinggal">
+                        <option value="">--pilih--</option>
+                        <option value="kos">Kos/kontrakan</option>
+                        <option value="saudara">Rumah saudara</option>
+                        <option value="ortu">Rumah orang tua</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Pilih 2 hobi yang paling disukai :</td>
+                <td>
+                    <input type="checkbox" name="hobi" value="Science"> Science <br>
+                    <input type="checkbox" name="hobi" value="Technology"> Technology <br>
+                    <input type="checkbox" name="hobi" value="Art"> Art <br>
+                    <input type="checkbox" name="hobi" value="Sport"> Sport
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+    <script>
+        function validasiForm() {
+            var nim = document.querySelector('input[name="nim"]').value;
+            var nama = document.querySelector('input[name="nama"]').value;
+            var tglLahir = document.querySelector('input[name="tgl_lahir"]').value;
+            var jenisKelamin = document.querySelector('input[name="jenis_kelamin"]:checked');
+            var tinggal = document.querySelector('select[name="tinggal"]').value;
+            var hobi = document.querySelectorAll('input[name="hobi"]:checked');
+            
+            if (hobi.length != 2) {
+                alert("Silakan pilih tepat 2 hobi.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
